@@ -5,18 +5,38 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 import filmlyticLogo from "@/assets/filmlytic-logo.png";
 import { Mail, Lock, User, ChevronLeft } from "lucide-react";
 
 const Auth = () => {
   const navigate = useNavigate();
+  const { signIn, signUp } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
+  const [signInEmail, setSignInEmail] = useState("");
+  const [signInPassword, setSignInPassword] = useState("");
+  const [signUpEmail, setSignUpEmail] = useState("");
+  const [signUpPassword, setSignUpPassword] = useState("");
+  const [signUpName, setSignUpName] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // TODO: Implement authentication logic
-    setTimeout(() => setIsLoading(false), 1000);
+    try {
+      await signIn(signInEmail, signInPassword);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSignUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      await signUp(signUpEmail, signUpPassword, signUpName);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -58,7 +78,7 @@ const Auth = () => {
                 <CardDescription>Sign in to your Filmlytic account</CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSignIn} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="signin-email">Email</Label>
                     <div className="relative">
@@ -68,6 +88,8 @@ const Auth = () => {
                         type="email"
                         placeholder="your@email.com"
                         className="pl-10"
+                        value={signInEmail}
+                        onChange={(e) => setSignInEmail(e.target.value)}
                         required
                       />
                     </div>
@@ -81,6 +103,8 @@ const Auth = () => {
                         type="password"
                         placeholder="••••••••"
                         className="pl-10"
+                        value={signInPassword}
+                        onChange={(e) => setSignInPassword(e.target.value)}
                         required
                       />
                     </div>
@@ -104,7 +128,7 @@ const Auth = () => {
                 <CardDescription>Get started with your free custodial wallet</CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSignUp} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="signup-name">Full Name</Label>
                     <div className="relative">
@@ -114,6 +138,8 @@ const Auth = () => {
                         type="text"
                         placeholder="John Doe"
                         className="pl-10"
+                        value={signUpName}
+                        onChange={(e) => setSignUpName(e.target.value)}
                         required
                       />
                     </div>
@@ -127,6 +153,8 @@ const Auth = () => {
                         type="email"
                         placeholder="your@email.com"
                         className="pl-10"
+                        value={signUpEmail}
+                        onChange={(e) => setSignUpEmail(e.target.value)}
                         required
                       />
                     </div>
@@ -140,6 +168,8 @@ const Auth = () => {
                         type="password"
                         placeholder="••••••••"
                         className="pl-10"
+                        value={signUpPassword}
+                        onChange={(e) => setSignUpPassword(e.target.value)}
                         required
                       />
                     </div>
