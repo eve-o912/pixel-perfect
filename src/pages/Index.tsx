@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Film, Shield, Wallet, Zap, TrendingUp, Users, Award, ChevronRight } from "lucide-react";
 import filmlyticLogo from "@/assets/filmlytic-logo.png";
+import { TiltCard } from "@/components/TiltCard";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -123,25 +124,29 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto" style={{ perspective: "1000px" }}>
             {features.map((feature, index) => (
-              <Card 
+              <TiltCard
                 key={index}
-                className="gradient-card border-cyan/30 shadow-lg hover:shadow-cyan transition-all duration-500 hover:scale-105 hover:border-cyan/60 animate-scale-in group backdrop-blur-sm"
+                className="animate-scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader>
-                  <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mb-4 shadow-cyan group-hover:animate-pulse-glow transition-all">
-                    <feature.icon className="w-8 h-8 text-foreground" />
-                  </div>
-                  <CardTitle className="text-2xl text-cyan">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                </CardContent>
-              </Card>
+                <Card 
+                  className="gradient-card border-cyan/30 shadow-lg hover:shadow-cyan transition-all duration-500 hover:border-cyan/60 group backdrop-blur-sm h-full"
+                >
+                  <CardHeader>
+                    <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mb-4 shadow-cyan group-hover:animate-pulse-glow transition-all">
+                      <feature.icon className="w-8 h-8 text-foreground" />
+                    </div>
+                    <CardTitle className="text-2xl text-cyan">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </TiltCard>
             ))}
           </div>
         </div>
