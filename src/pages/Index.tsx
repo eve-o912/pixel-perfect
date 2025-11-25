@@ -57,7 +57,15 @@ const Index = () => {
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <div className="mx-auto w-32 h-32 rounded-3xl flex items-center justify-center mb-8 animate-scale-in animate-pulse-glow relative">
               <div className="absolute inset-0 gradient-primary rounded-3xl opacity-20 animate-rotate-slow"></div>
-              <img src={filmlyticLogo} alt="Filmlytic Logo" className="w-24 h-24 relative z-10 animate-float" />
+              <img 
+                src={filmlyticLogo} 
+                alt="Filmlytic Logo" 
+                className="w-24 h-24 relative z-10 animate-float object-contain" 
+                onError={(e) => {
+                  console.error("Logo failed to load");
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
             </div>
             
             <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight bg-gradient-to-r from-cyan via-purple to-magenta bg-clip-text text-transparent animate-slide-up">
@@ -172,7 +180,15 @@ const Index = () => {
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-12 h-12 rounded-xl flex items-center justify-center">
-              <img src={filmlyticLogo} alt="Filmlytic" className="w-10 h-10" />
+              <img 
+                src={filmlyticLogo} 
+                alt="Filmlytic" 
+                className="w-10 h-10 object-contain" 
+                onError={(e) => {
+                  console.error("Footer logo failed to load");
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">Filmlytic</span>
           </div>
