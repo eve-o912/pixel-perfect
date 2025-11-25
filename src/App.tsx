@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { CursorReveal } from "./components/CursorReveal";
 import { PageTransition } from "./components/PageTransition";
+import { AuthProvider } from "./hooks/useAuth";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
@@ -33,9 +34,11 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <CursorReveal>
-          <AnimatedRoutes />
-        </CursorReveal>
+        <AuthProvider>
+          <CursorReveal>
+            <AnimatedRoutes />
+          </CursorReveal>
+        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
