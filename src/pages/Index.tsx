@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Film, Shield, Wallet, Zap, TrendingUp, Users, Award, ChevronRight, UserCircle2 } from "lucide-react";
+import { Film, Shield, Wallet, Zap, TrendingUp, Users, Award, ChevronRight, UserCircle2, Lock, Globe, BarChart3, Star, CheckCircle2 } from "lucide-react";
 import filmlyticLogo from "@/assets/filmlytic-logo.png";
 import { TiltCard } from "@/components/TiltCard";
 
@@ -256,6 +256,174 @@ const Index = () => {
                 </Card>
               </TiltCard>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Blockchain Section */}
+      <section className="py-24 px-4 bg-background/50 relative overflow-hidden">
+        <div className="absolute inset-0 gradient-mesh opacity-20"></div>
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan via-purple to-magenta bg-clip-text text-transparent">
+              Why Blockchain for Film Voting?
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Traditional voting systems have limitations. Blockchain solves them all.
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+            <div className="space-y-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center shadow-cyan">
+                    <Lock className="w-6 h-6 text-foreground" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2 text-cyan">Immutable Records</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Every vote is permanently recorded on the blockchain. No one can alter, delete, or manipulate voting history. What's recorded stays recorded forever.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center shadow-cyan">
+                    <Globe className="w-6 h-6 text-foreground" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2 text-cyan">Complete Transparency</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    All voting data is publicly verifiable on the blockchain. Anyone can audit the results and verify their authenticity at any time.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center shadow-cyan">
+                    <BarChart3 className="w-6 h-6 text-foreground" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2 text-cyan">Real-Time Analytics</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Track voting trends, analyze patterns, and get instant insights. All powered by blockchain data that updates in real-time across the network.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center shadow-cyan">
+                    <CheckCircle2 className="w-6 h-6 text-foreground" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2 text-cyan">No Intermediaries</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Direct peer-to-peer voting eliminates middlemen and gatekeepers. Your vote goes straight to the blockchain without third-party interference.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 px-4 gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+        </div>
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan via-purple to-magenta bg-clip-text text-transparent">
+              What Our Users Say
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Trusted by film enthusiasts and industry professionals worldwide
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <Card className="gradient-card border-cyan/30 shadow-lg backdrop-blur-sm animate-scale-in" style={{ animationDelay: '0.1s' }}>
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 gradient-primary rounded-full flex items-center justify-center">
+                    <span className="text-xl font-bold text-foreground">SM</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground">Sarah Mitchell</h4>
+                    <p className="text-sm text-muted-foreground">Film Critic</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground leading-relaxed">
+                  "Filmlytic has completely transformed how I engage with film analytics. The blockchain transparency gives me confidence that every vote matters."
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="gradient-card border-cyan/30 shadow-lg backdrop-blur-sm animate-scale-in" style={{ animationDelay: '0.2s' }}>
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 gradient-primary rounded-full flex items-center justify-center">
+                    <span className="text-xl font-bold text-foreground">JC</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground">James Chen</h4>
+                    <p className="text-sm text-muted-foreground">Producer</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground leading-relaxed">
+                  "As a producer, having access to immutable voting data is invaluable. The analytics help me understand audience preferences better than ever."
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="gradient-card border-cyan/30 shadow-lg backdrop-blur-sm animate-scale-in" style={{ animationDelay: '0.3s' }}>
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 gradient-primary rounded-full flex items-center justify-center">
+                    <span className="text-xl font-bold text-foreground">ER</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground">Emma Rodriguez</h4>
+                    <p className="text-sm text-muted-foreground">Film Student</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground leading-relaxed">
+                  "The custodial wallet made it so easy to get started. No complicated crypto setup—just sign up and start voting. Perfect for beginners!"
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
