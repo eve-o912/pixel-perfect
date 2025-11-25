@@ -135,7 +135,7 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-24 px-4 gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,hsl(45,100%,65%)_50%,transparent_75%)] bg-[length:200%_200%] animate-shimmer"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,hsl(45,100%,65%)_50%,transparent_75%)] bg-[length:200%_200%] animate-[shimmer_20s_linear_infinite]"></div>
         </div>
         
         <div className="container mx-auto text-center relative animate-fade-in">
