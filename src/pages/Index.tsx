@@ -54,25 +54,25 @@ const Index = () => {
             </div>
             
             <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight text-gold animate-slide-up">
-              Filmlytic
+              VoteChain
             </h1>
             
             <p className="text-2xl md:text-3xl mb-4 text-foreground/90 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              Blockchain-Powered Film Analytics
+              Universal Voting Platform
             </p>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              Revolutionary platform combining blockchain security with film industry analytics.
-              Get your custodial wallet and join the future of film voting.
+              Create any type of voting event with blockchain verification.
+              Secure, transparent, and flexible voting for every use case.
             </p>
             
             <div className="flex gap-4 justify-center flex-wrap animate-slide-up" style={{ animationDelay: '0.3s' }}>
               <Button
                 size="xl"
-                onClick={() => navigate("/auth")}
+                onClick={() => navigate("/admin")}
                 className="gradient-gold text-deep-black shadow-gold hover:shadow-xl hover:scale-105 border-2 border-gold"
               >
-                Get Started
+                Admin Dashboard
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
@@ -86,7 +86,7 @@ const Index = () => {
             </div>
 
             <p className="mt-8 text-sm text-muted-foreground animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              ✨ Free custodial wallet created automatically on signup
+              ✨ Blockchain-verified voting with real-time results
             </p>
           </div>
         </div>
@@ -166,10 +166,10 @@ const Index = () => {
             <div className="w-10 h-10 gradient-gold rounded-xl flex items-center justify-center">
               <Film className="w-6 h-6 text-deep-black" />
             </div>
-            <span className="text-2xl font-bold text-gold">Filmlytic</span>
+            <span className="text-2xl font-bold text-gold">VoteChain</span>
           </div>
           <p className="text-muted-foreground">
-            © 2024 Filmlytic. Blockchain-powered film analytics platform.
+            © 2024 VoteChain. Universal blockchain-powered voting platform.
           </p>
         </div>
       </footer>

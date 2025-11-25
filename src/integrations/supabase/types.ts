@@ -114,39 +114,6 @@ export type Database = {
         }
         Relationships: []
       }
-      films: {
-        Row: {
-          created_at: string
-          description: string | null
-          id: string
-          image_url: string | null
-          release_year: number | null
-          title: string
-          updated_at: string
-          vote_count: number
-        }
-        Insert: {
-          created_at?: string
-          description?: string | null
-          id?: string
-          image_url?: string | null
-          release_year?: number | null
-          title: string
-          updated_at?: string
-          vote_count?: number
-        }
-        Update: {
-          created_at?: string
-          description?: string | null
-          id?: string
-          image_url?: string | null
-          release_year?: number | null
-          title?: string
-          updated_at?: string
-          vote_count?: number
-        }
-        Relationships: []
-      }
       items: {
         Row: {
           created_at: string | null
@@ -243,35 +210,6 @@ export type Database = {
             columns: ["event_id"]
             isOneToOne: false
             referencedRelation: "events"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      votes: {
-        Row: {
-          created_at: string
-          film_id: string
-          id: string
-          user_id: string
-        }
-        Insert: {
-          created_at?: string
-          film_id: string
-          id?: string
-          user_id: string
-        }
-        Update: {
-          created_at?: string
-          film_id?: string
-          id?: string
-          user_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "votes_film_id_fkey"
-            columns: ["film_id"]
-            isOneToOne: false
-            referencedRelation: "films"
             referencedColumns: ["id"]
           },
         ]
