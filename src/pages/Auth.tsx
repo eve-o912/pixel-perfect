@@ -23,13 +23,11 @@ const Auth = () => {
   const [isCheckingSession, setIsCheckingSession] = useState(true);
 
   useEffect(() => {
-    // Check if user is already logged in
+    // Check if user is already logged in (used only to stop the loading state)
     supabase.auth.getSession().then(({ data: { session } }) => {
       setIsCheckingSession(false);
-      if (session) {
-        navigate("/");
-      }
     });
+
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
