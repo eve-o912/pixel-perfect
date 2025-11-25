@@ -17,16 +17,16 @@ All colors MUST be HSL.
     --popover: 240 10% 6%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 190 95% 55%;
+    --primary: 45 93% 47%;
     --primary-foreground: 240 10% 3.9%;
 
-    --secondary: 270 60% 50%;
+    --secondary: 240 4% 16%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 240 5% 26%;
     --muted-foreground: 240 5% 65%;
 
-    --accent: 290 80% 60%;
+    --accent: 45 93% 47%;
     --accent-foreground: 240 10% 3.9%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,31 +34,24 @@ All colors MUST be HSL.
 
     --border: 240 5% 20%;
     --input: 240 5% 20%;
-    --ring: 190 95% 55%;
+    --ring: 45 93% 47%;
 
     --radius: 0.75rem;
 
     /* Custom tokens for Filmlytic */
-    --cyan: 190 95% 55%;
-    --cyan-light: 190 95% 65%;
-    --cyan-dark: 190 95% 45%;
-    --purple: 270 60% 50%;
-    --purple-light: 270 60% 60%;
-    --magenta: 290 80% 60%;
     --gold: 45 93% 47%;
+    --gold-light: 45 93% 57%;
+    --gold-dark: 45 93% 37%;
     --deep-black: 240 10% 3.9%;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(190 95% 55%), hsl(270 60% 50%));
-    --gradient-hero: linear-gradient(180deg, hsl(240 10% 3.9%), hsl(240 15% 8%), hsl(240 10% 3.9%));
-    --gradient-card: linear-gradient(135deg, hsl(240 10% 6% / 0.8), hsl(270 60% 50% / 0.1), hsl(240 8% 8% / 0.8));
-    --gradient-mesh: radial-gradient(at 0% 0%, hsl(190 95% 55% / 0.3) 0px, transparent 50%), radial-gradient(at 100% 100%, hsl(270 60% 50% / 0.3) 0px, transparent 50%), radial-gradient(at 50% 50%, hsl(290 80% 60% / 0.2) 0px, transparent 50%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 93% 47%), hsl(45 93% 57%));
+    --gradient-hero: linear-gradient(180deg, hsl(240 10% 3.9%), hsl(240 10% 6%));
+    --gradient-card: linear-gradient(135deg, hsl(240 10% 6%), hsl(240 8% 8%));
     
     /* Shadows */
-    --shadow-cyan: 0 10px 40px -10px hsl(190 95% 55% / 0.5);
-    --shadow-cyan-lg: 0 20px 60px -15px hsl(190 95% 55% / 0.6);
-    --shadow-purple: 0 10px 40px -10px hsl(270 60% 50% / 0.4);
-    --shadow-glow: 0 0 80px hsl(190 95% 55% / 0.3), 0 0 40px hsl(270 60% 50% / 0.2);
+    --shadow-gold: 0 10px 40px -10px hsl(45 93% 47% / 0.4);
+    --shadow-gold-lg: 0 20px 60px -15px hsl(45 93% 47% / 0.5);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -80,16 +73,16 @@ All colors MUST be HSL.
     --popover: 240 10% 6%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 190 95% 55%;
+    --primary: 45 93% 47%;
     --primary-foreground: 240 10% 3.9%;
 
-    --secondary: 270 60% 50%;
+    --secondary: 240 4% 16%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 240 5% 26%;
     --muted-foreground: 240 5% 65%;
 
-    --accent: 290 80% 60%;
+    --accent: 45 93% 47%;
     --accent-foreground: 240 10% 3.9%;
 
     --destructive: 0 62.8% 30.6%;
@@ -97,7 +90,7 @@ All colors MUST be HSL.
 
     --border: 240 5% 20%;
     --input: 240 5% 20%;
-    --ring: 190 95% 55%;
+    --ring: 45 93% 47%;
     
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -123,8 +116,8 @@ All colors MUST be HSL.
 
 @layer utilities {
   /* Custom gradient utilities */
-  .gradient-primary {
-    background: var(--gradient-primary);
+  .gradient-gold {
+    background: var(--gradient-gold);
   }
   
   .gradient-hero {
@@ -135,40 +128,16 @@ All colors MUST be HSL.
     background: var(--gradient-card);
   }
   
-  .gradient-mesh {
-    background: var(--gradient-mesh);
-  }
-  
   /* Custom shadow utilities */
-  .shadow-cyan {
-    box-shadow: var(--shadow-cyan);
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
   }
   
-  .shadow-cyan-lg {
-    box-shadow: var(--shadow-cyan-lg);
-  }
-  
-  .shadow-purple {
-    box-shadow: var(--shadow-purple);
-  }
-  
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
+  .shadow-gold-lg {
+    box-shadow: var(--shadow-gold-lg);
   }
   
   /* Custom color utilities */
-  .text-cyan {
-    color: hsl(var(--cyan));
-  }
-  
-  .text-purple {
-    color: hsl(var(--purple));
-  }
-  
-  .text-magenta {
-    color: hsl(var(--magenta));
-  }
-  
   .text-gold {
     color: hsl(var(--gold));
   }
@@ -177,12 +146,12 @@ All colors MUST be HSL.
     color: hsl(var(--deep-black));
   }
   
-  .border-cyan {
-    border-color: hsl(var(--cyan));
+  .border-gold {
+    border-color: hsl(var(--gold));
   }
   
-  .bg-cyan {
-    background-color: hsl(var(--cyan));
+  .bg-gold {
+    background-color: hsl(var(--gold));
   }
   
   /* Animation utilities */
@@ -239,44 +208,5 @@ All colors MUST be HSL.
     100% {
       background-position: 200% center;
     }
-  }
-  
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-  
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 20px hsl(190 95% 55% / 0.3), 0 0 40px hsl(270 60% 50% / 0.2);
-    }
-    50% {
-      box-shadow: 0 0 40px hsl(190 95% 55% / 0.5), 0 0 80px hsl(270 60% 50% / 0.4);
-    }
-  }
-  
-  @keyframes rotate-slow {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .animate-pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-  
-  .animate-rotate-slow {
-    animation: rotate-slow 20s linear infinite;
   }
 }
