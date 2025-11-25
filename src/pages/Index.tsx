@@ -2,8 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Film, Shield, Wallet, Zap, TrendingUp, Users, Award, ChevronRight } from "lucide-react";
-import VoteBackground from "@/components/VoteBackground";
-import StatsCounter from "@/components/StatsCounter";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -45,15 +43,13 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative gradient-hero overflow-hidden">
-        <VoteBackground />
-        
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
         </div>
         
-        <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="container mx-auto px-4 py-20 relative">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="mx-auto w-24 h-24 gradient-gold rounded-3xl flex items-center justify-center mb-8 shadow-gold animate-scale-in animate-float">
+            <div className="mx-auto w-24 h-24 gradient-gold rounded-3xl flex items-center justify-center mb-8 shadow-gold animate-scale-in">
               <Film className="w-16 h-16 text-deep-black" />
             </div>
             
@@ -74,7 +70,7 @@ const Index = () => {
               <Button
                 size="xl"
                 onClick={() => navigate("/auth")}
-                className="gradient-gold text-deep-black shadow-gold hover:shadow-gold-lg hover:scale-110 border-2 border-gold transition-all duration-300"
+                className="gradient-gold text-deep-black shadow-gold hover:shadow-xl hover:scale-105 border-2 border-gold"
               >
                 Get Started
                 <ChevronRight className="ml-2 h-5 w-5" />
@@ -83,7 +79,7 @@ const Index = () => {
                 size="xl"
                 variant="outline"
                 onClick={() => navigate("/auth")}
-                className="border-2 border-gold text-gold hover:bg-gold hover:text-deep-black transition-all duration-300 hover:scale-105"
+                className="border-2 border-gold text-gold hover:bg-gold hover:text-deep-black"
               >
                 Sign In
               </Button>
@@ -96,13 +92,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Counter */}
-      <StatsCounter />
-
       {/* Features Grid */}
-      <section className="py-24 px-4 bg-background relative overflow-hidden">
-        <VoteBackground />
-        
+      <section className="py-24 px-4 bg-background relative">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,hsl(45,100%,65%),transparent_50%)]"></div>
         </div>
@@ -121,12 +112,12 @@ const Index = () => {
             {features.map((feature, index) => (
               <Card 
                 key={index}
-                className="gradient-card border-border/50 shadow-lg hover:shadow-gold-lg transition-all duration-500 hover:scale-105 hover:border-gold/50 animate-scale-in group"
+                className="gradient-card border-border/50 shadow-lg hover:shadow-gold transition-all duration-500 hover:scale-105 hover:border-gold/50 animate-scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="w-14 h-14 gradient-gold rounded-2xl flex items-center justify-center mb-4 shadow-gold group-hover:animate-pulse-glow transition-all">
-                    <feature.icon className="w-8 h-8 text-deep-black group-hover:scale-110 transition-transform" />
+                  <div className="w-14 h-14 gradient-gold rounded-2xl flex items-center justify-center mb-4 shadow-gold">
+                    <feature.icon className="w-8 h-8 text-deep-black" />
                   </div>
                   <CardTitle className="text-2xl text-gold">{feature.title}</CardTitle>
                 </CardHeader>
@@ -143,8 +134,6 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="py-24 px-4 gradient-hero relative overflow-hidden">
-        <VoteBackground />
-        
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,hsl(45,100%,65%)_50%,transparent_75%)] bg-[length:200%_200%] animate-shimmer"></div>
         </div>
@@ -161,7 +150,7 @@ const Index = () => {
             <Button
               size="xl"
               onClick={() => navigate("/auth")}
-              className="gradient-gold text-deep-black shadow-gold hover:shadow-gold-lg hover:scale-110 border-2 border-gold transition-all duration-300 animate-pulse-glow"
+              className="gradient-gold text-deep-black shadow-gold hover:shadow-xl hover:scale-110 border-2 border-gold"
             >
               Create Your Account
               <ChevronRight className="ml-2 h-5 w-5" />
