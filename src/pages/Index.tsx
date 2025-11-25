@@ -61,14 +61,24 @@ const Index = () => {
             </span>
           </div>
           {user ? (
-            <Button
-              variant="outline"
-              onClick={() => signOut()}
-              className="border-cyan/50 hover:bg-cyan/10 hover:border-cyan transition-all duration-300"
-            >
-              <LogOut className="h-4 w-4 mr-2 text-cyan" />
-              Sign Out
-            </Button>
+            <div className="flex items-center gap-4">
+              <Button
+                variant="outline"
+                onClick={() => navigate("/films")}
+                className="border-cyan/50 hover:bg-cyan/10 hover:border-cyan transition-all duration-300"
+              >
+                <Film className="h-4 w-4 mr-2 text-cyan" />
+                Browse Films
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => signOut()}
+                className="border-cyan/50 hover:bg-cyan/10 hover:border-cyan transition-all duration-300"
+              >
+                <LogOut className="h-4 w-4 mr-2 text-cyan" />
+                Sign Out
+              </Button>
+            </div>
           ) : (
             <Button
               variant="outline"
@@ -122,22 +132,35 @@ const Index = () => {
             </p>
             
             <div className="flex gap-4 justify-center flex-wrap animate-slide-up" style={{ animationDelay: '0.3s' }}>
-              <Button
-                size="xl"
-                onClick={() => navigate("/auth")}
-                className="gradient-primary text-foreground shadow-cyan hover:shadow-glow hover:scale-105 transition-all duration-300 border-2 border-cyan/50"
-              >
-                Get Started
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="xl"
-                variant="outline"
-                onClick={() => navigate("/auth")}
-                className="border-2 border-cyan text-cyan hover:bg-cyan hover:text-background transition-all duration-300"
-              >
-                Sign In
-              </Button>
+              {user ? (
+                <Button
+                  size="xl"
+                  onClick={() => navigate("/films")}
+                  className="gradient-primary text-foreground shadow-cyan hover:shadow-glow hover:scale-105 transition-all duration-300 border-2 border-cyan/50"
+                >
+                  Browse Films
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </Button>
+              ) : (
+                <>
+                  <Button
+                    size="xl"
+                    onClick={() => navigate("/auth")}
+                    className="gradient-primary text-foreground shadow-cyan hover:shadow-glow hover:scale-105 transition-all duration-300 border-2 border-cyan/50"
+                  >
+                    Get Started
+                    <ChevronRight className="ml-2 h-5 w-5" />
+                  </Button>
+                  <Button
+                    size="xl"
+                    variant="outline"
+                    onClick={() => navigate("/auth")}
+                    className="border-2 border-cyan text-cyan hover:bg-cyan hover:text-background transition-all duration-300"
+                  >
+                    Sign In
+                  </Button>
+                </>
+              )}
             </div>
 
             <p className="mt-8 text-sm text-muted-foreground animate-fade-in" style={{ animationDelay: '0.4s' }}>
