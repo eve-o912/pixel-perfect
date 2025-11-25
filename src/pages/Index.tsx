@@ -44,7 +44,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Navigation Header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/95 border-b-2 border-cyan/40 shadow-lg shadow-cyan/10">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-cyan/20">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-xl flex items-center justify-center animate-pulse-glow">
