@@ -1,12 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Film, Shield, Wallet, Zap, TrendingUp, Users, Award, ChevronRight, UserCircle2, Lock, Globe, BarChart3, Star, CheckCircle2 } from "lucide-react";
+import { Film, Shield, Wallet, Zap, TrendingUp, Users, Award, ChevronRight, UserCircle2, Lock, Globe, BarChart3, Star, CheckCircle2, LogOut } from "lucide-react";
 import filmlyticLogo from "@/assets/filmlytic-logo.png";
 import { TiltCard } from "@/components/TiltCard";
+import { useAuth } from "@/hooks/useAuth";
 
 const Index = () => {
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
 
   const features = [
     {
@@ -58,14 +60,25 @@ const Index = () => {
               Filmlytic
             </span>
           </div>
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => navigate("/auth")}
-            className="border-cyan/50 hover:bg-cyan/10 hover:border-cyan transition-all duration-300"
-          >
-            <UserCircle2 className="h-5 w-5 text-cyan" />
-          </Button>
+          {user ? (
+            <Button
+              variant="outline"
+              onClick={() => signOut()}
+              className="border-cyan/50 hover:bg-cyan/10 hover:border-cyan transition-all duration-300"
+            >
+              <LogOut className="h-4 w-4 mr-2 text-cyan" />
+              Sign Out
+            </Button>
+          ) : (
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => navigate("/auth")}
+              className="border-cyan/50 hover:bg-cyan/10 hover:border-cyan transition-all duration-300"
+            >
+              <UserCircle2 className="h-5 w-5 text-cyan" />
+            </Button>
+          )}
         </div>
       </nav>
 
