@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Film, Shield, Wallet, Zap, TrendingUp, Users, Award, ChevronRight } from "lucide-react";
+import filmlyticLogo from "@/assets/filmlytic-logo.png";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -43,17 +44,23 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative gradient-hero overflow-hidden">
+        <div className="absolute inset-0 gradient-mesh opacity-40"></div>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
         </div>
         
-        <div className="container mx-auto px-4 py-20 relative">
+        {/* Animated orbs */}
+        <div className="absolute top-20 left-10 w-64 h-64 bg-cyan/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        
+        <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="mx-auto w-24 h-24 gradient-gold rounded-3xl flex items-center justify-center mb-8 shadow-gold animate-scale-in">
-              <Film className="w-16 h-16 text-deep-black" />
+            <div className="mx-auto w-32 h-32 rounded-3xl flex items-center justify-center mb-8 animate-scale-in animate-pulse-glow relative">
+              <div className="absolute inset-0 gradient-primary rounded-3xl opacity-20 animate-rotate-slow"></div>
+              <img src={filmlyticLogo} alt="Filmlytic Logo" className="w-24 h-24 relative z-10 animate-float" />
             </div>
             
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight text-gold animate-slide-up">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight bg-gradient-to-r from-cyan via-purple to-magenta bg-clip-text text-transparent animate-slide-up">
               Filmlytic
             </h1>
             
@@ -70,7 +77,7 @@ const Index = () => {
               <Button
                 size="xl"
                 onClick={() => navigate("/auth")}
-                className="gradient-gold text-deep-black shadow-gold hover:shadow-xl hover:scale-105 border-2 border-gold"
+                className="gradient-primary text-foreground shadow-cyan hover:shadow-glow hover:scale-105 transition-all duration-300 border-2 border-cyan/50"
               >
                 Get Started
                 <ChevronRight className="ml-2 h-5 w-5" />
@@ -79,7 +86,7 @@ const Index = () => {
                 size="xl"
                 variant="outline"
                 onClick={() => navigate("/auth")}
-                className="border-2 border-gold text-gold hover:bg-gold hover:text-deep-black"
+                className="border-2 border-cyan text-cyan hover:bg-cyan hover:text-background transition-all duration-300"
               >
                 Sign In
               </Button>
@@ -93,14 +100,14 @@ const Index = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 px-4 bg-background relative">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,hsl(45,100%,65%),transparent_50%)]"></div>
-        </div>
+      <section className="py-24 px-4 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 gradient-mesh opacity-20"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple/10 rounded-full blur-3xl"></div>
         
-        <div className="container mx-auto relative">
+        <div className="container mx-auto relative z-10">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-5xl font-bold mb-4 text-gold">
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan via-purple to-magenta bg-clip-text text-transparent">
               Why Choose Filmlytic?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -112,14 +119,14 @@ const Index = () => {
             {features.map((feature, index) => (
               <Card 
                 key={index}
-                className="gradient-card border-border/50 shadow-lg hover:shadow-gold transition-all duration-500 hover:scale-105 hover:border-gold/50 animate-scale-in"
+                className="gradient-card border-cyan/30 shadow-lg hover:shadow-cyan transition-all duration-500 hover:scale-105 hover:border-cyan/60 animate-scale-in group backdrop-blur-sm"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="w-14 h-14 gradient-gold rounded-2xl flex items-center justify-center mb-4 shadow-gold">
-                    <feature.icon className="w-8 h-8 text-deep-black" />
+                  <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mb-4 shadow-cyan group-hover:animate-pulse-glow transition-all">
+                    <feature.icon className="w-8 h-8 text-foreground" />
                   </div>
-                  <CardTitle className="text-2xl text-gold">{feature.title}</CardTitle>
+                  <CardTitle className="text-2xl text-cyan">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground leading-relaxed">
@@ -134,13 +141,14 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="py-24 px-4 gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,hsl(45,100%,65%)_50%,transparent_75%)] bg-[length:200%_200%] animate-shimmer"></div>
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,hsl(190,95%,55%)_50%,transparent_75%)] bg-[length:200%_200%] animate-shimmer"></div>
         </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan/20 rounded-full blur-3xl animate-pulse-glow"></div>
         
-        <div className="container mx-auto text-center relative animate-fade-in">
+        <div className="container mx-auto text-center relative z-10 animate-fade-in">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-gold">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan via-purple to-magenta bg-clip-text text-transparent">
               Ready to Get Started?
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground mb-12">
@@ -150,7 +158,7 @@ const Index = () => {
             <Button
               size="xl"
               onClick={() => navigate("/auth")}
-              className="gradient-gold text-deep-black shadow-gold hover:shadow-xl hover:scale-110 border-2 border-gold"
+              className="gradient-primary text-foreground shadow-glow hover:shadow-cyan-lg hover:scale-110 transition-all duration-300 border-2 border-cyan/50"
             >
               Create Your Account
               <ChevronRight className="ml-2 h-5 w-5" />
@@ -160,13 +168,13 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 bg-background border-t border-border/30">
+      <footer className="py-12 px-4 bg-background border-t border-cyan/20">
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-10 h-10 gradient-gold rounded-xl flex items-center justify-center">
-              <Film className="w-6 h-6 text-deep-black" />
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center">
+              <img src={filmlyticLogo} alt="Filmlytic" className="w-10 h-10" />
             </div>
-            <span className="text-2xl font-bold text-gold">Filmlytic</span>
+            <span className="text-2xl font-bold bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">Filmlytic</span>
           </div>
           <p className="text-muted-foreground">
             © 2024 Filmlytic. Blockchain-powered film analytics platform.
