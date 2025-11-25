@@ -57,6 +57,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+          dark: "hsl(var(--gold-dark))",
+        },
+        "deep-black": "hsl(var(--deep-black))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -84,6 +90,10 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "shimmer": "shimmer 20s linear infinite",
+      },
+      fontSize: {
+        "8xl": ["6rem", { lineHeight: "1", letterSpacing: "-0.02em" }],
       },
     },
   },
