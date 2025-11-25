@@ -14,6 +14,106 @@ export type Database = {
   }
   public: {
     Tables: {
+      event_votes: {
+        Row: {
+          blockchain_hash: string | null
+          created_at: string | null
+          event_id: string
+          id: string
+          item_id: string
+          rank: number | null
+          voter_id: string
+        }
+        Insert: {
+          blockchain_hash?: string | null
+          created_at?: string | null
+          event_id: string
+          id?: string
+          item_id: string
+          rank?: number | null
+          voter_id: string
+        }
+        Update: {
+          blockchain_hash?: string | null
+          created_at?: string | null
+          event_id?: string
+          id?: string
+          item_id?: string
+          rank?: number | null
+          voter_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "event_votes_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "event_votes_item_id_fkey"
+            columns: ["item_id"]
+            isOneToOne: false
+            referencedRelation: "items"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "event_votes_voter_id_fkey"
+            columns: ["voter_id"]
+            isOneToOne: false
+            referencedRelation: "voters"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      events: {
+        Row: {
+          category: string
+          created_at: string | null
+          created_by: string | null
+          end_time: string
+          event_name: string
+          id: string
+          number_of_choices: number
+          number_of_items: number
+          number_of_winners: number
+          start_time: string
+          status: Database["public"]["Enums"]["event_status"]
+          updated_at: string | null
+          vote_mode: Database["public"]["Enums"]["vote_mode"]
+        }
+        Insert: {
+          category: string
+          created_at?: string | null
+          created_by?: string | null
+          end_time: string
+          event_name: string
+          id?: string
+          number_of_choices?: number
+          number_of_items?: number
+          number_of_winners?: number
+          start_time: string
+          status?: Database["public"]["Enums"]["event_status"]
+          updated_at?: string | null
+          vote_mode?: Database["public"]["Enums"]["vote_mode"]
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          created_by?: string | null
+          end_time?: string
+          event_name?: string
+          id?: string
+          number_of_choices?: number
+          number_of_items?: number
+          number_of_winners?: number
+          start_time?: string
+          status?: Database["public"]["Enums"]["event_status"]
+          updated_at?: string | null
+          vote_mode?: Database["public"]["Enums"]["vote_mode"]
+        }
+        Relationships: []
+      }
       films: {
         Row: {
           created_at: string
@@ -46,6 +146,106 @@ export type Database = {
           vote_count?: number
         }
         Relationships: []
+      }
+      items: {
+        Row: {
+          created_at: string | null
+          creator: string | null
+          description: string | null
+          event_id: string
+          id: string
+          image_url: string | null
+          title: string
+          updated_at: string | null
+          votes: number
+        }
+        Insert: {
+          created_at?: string | null
+          creator?: string | null
+          description?: string | null
+          event_id: string
+          id?: string
+          image_url?: string | null
+          title: string
+          updated_at?: string | null
+          votes?: number
+        }
+        Update: {
+          created_at?: string | null
+          creator?: string | null
+          description?: string | null
+          event_id?: string
+          id?: string
+          image_url?: string | null
+          title?: string
+          updated_at?: string | null
+          votes?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "items_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_roles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      voters: {
+        Row: {
+          created_at: string | null
+          event_id: string
+          id: string
+          is_used: boolean
+          voted_at: string | null
+          voter_code: string
+        }
+        Insert: {
+          created_at?: string | null
+          event_id: string
+          id?: string
+          is_used?: boolean
+          voted_at?: string | null
+          voter_code: string
+        }
+        Update: {
+          created_at?: string | null
+          event_id?: string
+          id?: string
+          is_used?: boolean
+          voted_at?: string | null
+          voter_code?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "voters_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       votes: {
         Row: {
@@ -81,10 +281,18 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
+      event_status: "draft" | "active" | "paused" | "completed"
+      vote_mode: "single" | "multiple" | "ranked"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -211,6 +419,10 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+      event_status: ["draft", "active", "paused", "completed"],
+      vote_mode: ["single", "multiple", "ranked"],
+    },
   },
 } as const
