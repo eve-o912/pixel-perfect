@@ -44,7 +44,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Navigation Header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-cyan/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b-2 border-cyan/40 shadow-lg shadow-cyan/10">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-xl flex items-center justify-center animate-pulse-glow">
@@ -130,6 +130,88 @@ const Index = () => {
             <p className="mt-8 text-sm text-muted-foreground animate-fade-in" style={{ animationDelay: '0.4s' }}>
               ✨ Free custodial wallet created automatically on signup
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-24 px-4 bg-background/50 relative overflow-hidden">
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan via-purple to-magenta bg-clip-text text-transparent">
+              How It Works
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Three simple steps to join the future of film analytics
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+            <div className="text-center animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              <div className="w-20 h-20 mx-auto gradient-primary rounded-full flex items-center justify-center mb-6 shadow-cyan">
+                <span className="text-4xl font-bold text-foreground">1</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-cyan">Sign Up Instantly</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Create your account in seconds. No complicated forms, no lengthy verification process. Just your email and you're in.
+              </p>
+            </div>
+
+            <div className="text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="w-20 h-20 mx-auto gradient-primary rounded-full flex items-center justify-center mb-6 shadow-cyan">
+                <span className="text-4xl font-bold text-foreground">2</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-cyan">Get Your Wallet</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We automatically create a secure custodial wallet for you. No crypto knowledge required—we handle all the technical details.
+              </p>
+            </div>
+
+            <div className="text-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <div className="w-20 h-20 mx-auto gradient-primary rounded-full flex items-center justify-center mb-6 shadow-cyan">
+                <span className="text-4xl font-bold text-foreground">3</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-cyan">Start Voting</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Vote on films, view analytics, and track everything on the blockchain. Your votes are secure, transparent, and immutable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-24 px-4 gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+        </div>
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan via-purple to-magenta bg-clip-text text-transparent">
+              Trusted by Thousands
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Join a growing community revolutionizing film analytics
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
+            <div className="text-center animate-scale-in" style={{ animationDelay: '0.1s' }}>
+              <div className="text-5xl font-bold bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent mb-2">10K+</div>
+              <p className="text-muted-foreground text-lg">Active Users</p>
+            </div>
+            <div className="text-center animate-scale-in" style={{ animationDelay: '0.2s' }}>
+              <div className="text-5xl font-bold bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent mb-2">50K+</div>
+              <p className="text-muted-foreground text-lg">Films Voted</p>
+            </div>
+            <div className="text-center animate-scale-in" style={{ animationDelay: '0.3s' }}>
+              <div className="text-5xl font-bold bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent mb-2">100%</div>
+              <p className="text-muted-foreground text-lg">Transparent</p>
+            </div>
+            <div className="text-center animate-scale-in" style={{ animationDelay: '0.4s' }}>
+              <div className="text-5xl font-bold bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent mb-2">24/7</div>
+              <p className="text-muted-foreground text-lg">Blockchain Security</p>
+            </div>
           </div>
         </div>
       </section>
